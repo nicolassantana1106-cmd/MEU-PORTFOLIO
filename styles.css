@@ -18,6 +18,17 @@ header {
     padding: 30px;
 }
 
+.foto-perfil {
+position: fixed; 
+top: 20px; 
+left: 20px; 
+width: 100px;
+height: 100px;
+border-radius: 50%; 
+object-fit: cover;  
+z-index: 1000;
+}
+
 nav {
     background-color: #cc100a;
 }
