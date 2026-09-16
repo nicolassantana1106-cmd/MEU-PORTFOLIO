@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos | Nicolas Henrique</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Gráficos e Visualizações</h1>
+        <p>Evolução da tecnologia e do acesso à Internet no Brasil</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="curriculo.html">Currículo</a></li>
+            <li><a href="formulario.html">Contato</a></li>
+            <li><a href="multimidia.html">Multimídia</a></li>
+            <li><a href="grafico.html">Gráficos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h2>Crescimento da Internet no Brasil</h2>
+
+            <p>
+                Exemplo de gráfico representando o crescimento do acesso à
+                Internet nos domicílios brasileiros ao longo dos anos.
+            </p>
+
+            <canvas id="grafico" width="700" height="400"></canvas>
+
+        </section>
+
+        <section>
+
+            <h2>Bandeira do Brasil em SVG</h2>
+
+
+
+            <svg width="500" height="300">
+
+                <rect x="0" y="0" width="500" height="300" fill="#009B3A">
+                </rect>
+
+
+                <polygon points="250,40 430,150 250,260 70,150" fill="#FFDF00">
+                </polygon>
+
+
+                <circle cx="250" cy="150" r="70" fill="#002776">
+                </circle>
+
+
+                <path d="M180 160 Q250 110 320 160" stroke="white" stroke-width="10" fill="none">
+                </path>
+
+
+                <polygon points="
+                    250,115
+                    258,138
+                    282,138
+                    262,152
+                    270,175
+                    250,162
+                    230,175
+                    238,152
+                    218,138
+                    242,138" fill="white">
+                </polygon>
+
+            </svg>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Nicolas Henrique Santana Caetano</p>
+        <p>Portfólio acadêmico desenvolvido para a disciplina de Desenvolvimento Web.</p>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById("grafico");
+        const ctx = canvas.getContext("2d");
+
+        /* Título */
+
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText("Acesso à Internet nos Domicílios Brasileiros (%)", 120, 30);
+
+        /* Barras */
+
+        ctx.fillStyle = "#009B3A";
+        ctx.fillRect(70, 150, 80, 180);
+
+        ctx.fillStyle = "#009B3A";
+        ctx.fillRect(190, 120, 80, 210);
+
+        ctx.fillStyle = "#009B3A";
+        ctx.fillRect(310, 90, 80, 240);
+
+        ctx.fillStyle = "#009B3A";
+        ctx.fillRect(430, 60, 80, 270);
+
+        ctx.fillStyle = "#009B3A";
+        ctx.fillRect(550, 30, 80, 300);
+
+        /* Anos */
+
+        ctx.fillStyle = "black";
+        ctx.font = "16px Arial";
+
+        ctx.fillText("2016", 85, 360);
+        ctx.fillText("2018", 205, 360);
+        ctx.fillText("2020", 325, 360);
+        ctx.fillText("2022", 445, 360);
+        ctx.fillText("2024", 565, 360);
+
+        /* Percentuais */
+
+        ctx.fillText("69%", 85, 140);
+        ctx.fillText("79%", 205, 110);
+        ctx.fillText("83%", 325, 80);
+        ctx.fillText("89%", 445, 50);
+        ctx.fillText("94%", 565, 20);
+
+    </script>
+
+</body>
+
+</html>
