@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Nicolas Henrique</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Formulário de Contato</h1>
+        <p>Entre em contato comigo através do formulário abaixo.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="curriculo.html">Currículo</a></li>
+            <li><a href="formulario.html">Contato</a></li>
+            <li><a href="multimidia.html">Multimídia</a></li>
+            <li><a href="grafico.html">Gráficos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h2>Envie sua Mensagem</h2>
+
+            <form action="#" method="post">
+
+          <label for="nome">Nome Completo:</label><br>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        required>
+                </p>
+
+                <p>
+                    <label for="email">E-mail:</label><br>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required>
+                </p>
+
+                <p>
+                    <label for="telefone">Telefone:</label><br>
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone">
+                </p>
+
+                <p>
+                    <label for="idade">Idade:</label><br>
+                    <input
+                        type="number"
+                        id="idade"
+                        name="idade"
+                        min="1"
+                        max="120">
+                </p>
+
+                <p>
+                    <label for="nascimento">Data de Nascimento:</label><br>
+                    <input
+                        type="date"
+                        id="nascimento"
+                        name="nascimento">
+                </p>
+
+                <p>
+                    <label for="area">Área de Interesse:</label><br>
+
+                    <select id="area" name="area">
+                        <option value="">Selecione uma opção</option>
+                        <option value="suporte">Suporte de TI</option>
+                        <option value="redes">Redes</option>
+                        <option value="desenvolvimento">Desenvolvimento Web</option>
+                        <option value="programacao">Programação</option>
+                    </select>
+                </p>
+
+                <fieldset>
+
+                    <legend>Prioridade do Contato</legend>
+
+                    <input type="radio" id="baixa" name="prioridade">
+                    <label for="baixa">Baixa</label>
+
+                    <input type="radio" id="media" name="prioridade">
+                    <label for="media">Média</label>
+
+                    <input type="radio" id="alta" name="prioridade">
+                    <label for="alta">Alta</label>
+
+                </fieldset>
+
+                <br>
+
+                <p>
+                    <input
+                        type="checkbox"
+                        id="novidades"
+                        name="novidades">
+
+                    <label for="novidades">
+                        Desejo receber novidades por e-mail.
+                    </label>
+                </p>
+
+                <p>
+                    <label for="mensagem">Mensagem:</label><br>
+
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="6"
+                        cols="50"
+                        required></textarea>
+                </p>
+
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Nicolas Henrique Santana Caetano</p>
+        <p>Portfólio acadêmico desenvolvido para a disciplina de Desenvolvimento Web.</p>
+    </footer>
+
+</body>
+
+</html>
