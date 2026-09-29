@@ -16,57 +16,59 @@
     </header>
 
     <nav>
-        <ul>
+        <ul class="menu">
             <li><a href="index.html">Início</a></li>
             <li><a href="curriculo.html">Currículo</a></li>
             <li><a href="formulario.html">Contato</a></li>
             <li><a href="multimidia.html">Multimídia</a></li>
-            <li><a href="graficos.html">Gráficos</a></li>
+            <li><a href="grafico.html">Gráficos</a></li>
         </ul>
     </nav>
 
     <main>
 
+        <div class="multimidia-container">
+
+            <section>
+                <h2>Vídeo</h2>
+
+                <p>Animação Sid MC</p>
+
+                <video controls>
+                    animacao-portfolio.mp4
+                    Seu navegador não suporta vídeo.
+                </video>
+            </section>
+
+            <section>
+                <h2>Áudio</h2>
+
+                <p>Djonga e BK</p>
+
+                <audio controls>
+                    audio-portfolio.mp3
+                    Seu navegador não suporta áudio.
+                </audio>
+            </section>
+
+        </div>
+
         <section>
-            <h2>Vídeo</h2>
+            <h2>Localização</h2>
 
-            <p>Animação Sid MC</p>
+            <p>
+                Localização exibida através do Google Maps.
+            </p>
 
-            <video width="600" controls>
-                <source src="animacao-portfolio.mp4"
-                Seu navegador não suporta vídeo.
-            </video>
+            <iframe
+                class="mapa"
+                src="https://www.google.com/maps?q=Sao+Paulo,+SP&output=embed"
+                title="Localização no Google Maps"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
         </section>
-
-        <section>
-            <h2>Áudio</h2>
-
-            <p>Djonga e BK</p>
-
-            <audio controls>
-                <source src="audio-portfolio.mp3"
-                Seu navegador não suporta áudio.
-            </audio>
-        </section>
-
-       <section>
-
-    <h2>Localização</h2>
-
-    <p>
-        Localização exibida através do Google Maps.
-    </p>
-
-    <iframe
-        src="https://www.google.com/maps?q=Sao+Paulo,+SP&output=embed"
-        width="600"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-    </iframe>
-
-</section>
 
     </main>
 
