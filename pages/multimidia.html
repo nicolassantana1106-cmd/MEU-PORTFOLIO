@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multimídia | Nicolas Henrique</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body>
@@ -13,11 +13,12 @@
     <header>
         <h1>Multimídia</h1>
         <p>Conteúdos em vídeo, áudio e mídias incorporadas.</p>
+        <button type="button" class="theme-toggle" data-theme-toggle>Theme</button>
     </header>
 
     <nav>
         <ul class="menu">
-            <li><a href="index.html">Início</a></li>
+            <li><a href="../index.html">Início</a></li>
             <li><a href="curriculo.html">Currículo</a></li>
             <li><a href="formulario.html">Contato</a></li>
             <li><a href="multimidia.html">Multimídia</a></li>
@@ -34,10 +35,16 @@
 
                 <p>Animação Sid MC</p>
 
-                <video controls>
-                    animacao-portfolio.mp4
-                    Seu navegador não suporta vídeo.
-                </video>
+                <div class="media-frame video-frame">
+                    <iframe
+                        src="https://www.youtube.com/embed/6X5krhF4RdA?rel=0"
+                        title="Vídeo de animação Sid MC"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </section>
 
             <section>
@@ -45,8 +52,8 @@
 
                 <p>Djonga e BK</p>
 
-                <audio controls>
-                    audio-portfolio.mp3
+                <audio controls preload="metadata">
+                    <source src="Audio/10%20.%20Djonga%20-%20O%20Mundo%20%C3%A9%20Nosso%20part.%20BK(MP3_128K).mp3" type="audio/mpeg">
                     Seu navegador não suporta áudio.
                 </audio>
             </section>
@@ -76,6 +83,8 @@
         <p>&copy; 2026 - Nicolas Henrique Santana Caetano</p>
         <p>Portfólio acadêmico desenvolvido para a disciplina de Desenvolvimento Web.</p>
     </footer>
+
+    <script src="../js/scripts.js"></script>
 
 </body>
 
