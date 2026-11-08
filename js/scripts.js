@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initializePortfolio = () => {
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'dark') {
         document.body.classList.add('dark');
@@ -167,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Object.keys(fields).forEach((fieldName) => {
         const field = fields[fieldName];
+        if (!field) return;
+
         field.addEventListener('input', () => {
             validateField(fieldName);
             saveDraft();
@@ -177,10 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    fields.area.addEventListener('change', () => {
-        validateField('area');
-        saveDraft();
-    });
+    if (fields.area) {
+        fields.area.addEventListener('change', () => {
+            validateField('area');
+            saveDraft();
+        });
+    }
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -223,4 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('portfolio-form-draft');
         formStatus?.classList.remove('is-visible');
     });
-});
+};
+
+document.addEventListener('DOMContentLoaded', initializePortfolio);
+window.addEventListener('components:loaded', initializePortfolio);
