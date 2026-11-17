@@ -51,6 +51,38 @@ body {
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1000;
+    padding: 8px 12px;
+    color: #111111;
+    background: #ffffff;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 3px solid #111111;
+    outline-offset: 3px;
+}
+
+body.dark :focus-visible {
+    outline-color: #ffffff;
+}
+
+.main-nav a[aria-current="page"] {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
 header {
     background: linear-gradient(135deg, var(--primary) 0%, #a80000 100%);
     color: white;

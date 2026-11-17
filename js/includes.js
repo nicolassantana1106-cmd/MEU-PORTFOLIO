@@ -15,7 +15,7 @@ const headerFallback = `
             </ul>
         </nav>
 
-        <button type="button" class="theme-toggle" data-theme-toggle>Tema escuro</button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">Tema escuro</button>
     </div>
 </header>`;
 
@@ -37,6 +37,8 @@ const resolveNavigationPath = (href) => {
     return normalized;
 };
 
+const normalizeNavigationPath = (path) => path.replace(/index\.html$/, '').replace(/\/+$/, '') || '/';
+
 const insertFragment = async (targetId, url, fallbackMarkup) => {
     const target = document.getElementById(targetId);
     if (!target) return;
@@ -47,21 +49,30 @@ const insertFragment = async (targetId, url, fallbackMarkup) => {
         const html = await response.text();
         target.innerHTML = html;
     } catch (error) {
+        console.error(`Não foi possível carregar ${url}; usando conteúdo alternativo.`, error);
         target.innerHTML = fallbackMarkup;
     }
 
     if (targetId === 'site-header') {
         target.querySelectorAll('a[data-href]').forEach((link) => {
             link.setAttribute('href', resolveNavigationPath(link.dataset.href));
+
+            const linkPath = normalizeNavigationPath(new URL(link.href, window.location.href).pathname);
+            const currentPath = normalizeNavigationPath(window.location.pathname);
+            if (linkPath === currentPath) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
         });
     }
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const currentScript = document.currentScript;
-    const headerPath = currentScript?.dataset.headerPath || 'components/header.html';
-    const footerPath = currentScript?.dataset.footerPath || 'components/footer.html';
+const currentScript = document.currentScript;
+const headerPath = currentScript?.dataset.headerPath || 'components/header.html';
+const footerPath = currentScript?.dataset.footerPath || 'components/footer.html';
 
+document.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([
         insertFragment('site-header', headerPath, headerFallback),
         insertFragment('site-footer', footerPath, footerFallback)

@@ -5,10 +5,12 @@ const initializePortfolio = () => {
     }
 
     const themeButton = document.querySelector('[data-theme-toggle]');
-    if (themeButton) {
+    if (themeButton && themeButton.dataset.initialized !== 'true') {
+        themeButton.dataset.initialized = 'true';
         const updateThemeButton = () => {
             const isDark = document.body.classList.contains('dark');
             themeButton.textContent = isDark ? 'Tema claro' : 'Tema escuro';
+            themeButton.setAttribute('aria-pressed', String(isDark));
         };
 
         updateThemeButton();
@@ -21,7 +23,8 @@ const initializePortfolio = () => {
     }
 
     const form = document.getElementById('form-contato');
-    if (!form) return;
+    if (!form || form.dataset.initialized === 'true') return;
+    form.dataset.initialized = 'true';
 
     const fields = {
         nome: document.getElementById('nome'),
@@ -73,9 +76,11 @@ const initializePortfolio = () => {
             const radios = form.querySelectorAll('input[name="prioridade"]');
             radios.forEach((radio) => {
                 radio.classList.toggle('input-error', Boolean(message));
+                radio.setAttribute('aria-invalid', String(Boolean(message)));
             });
         } else if (field) {
             field.classList.toggle('input-error', Boolean(message));
+            field.setAttribute('aria-invalid', String(Boolean(message)));
         }
 
         const errorNode = errors[fieldName];
@@ -220,6 +225,9 @@ const initializePortfolio = () => {
     form.addEventListener('reset', () => {
         document.querySelectorAll('.field-error').forEach((node) => {
             node.textContent = '';
+        });
+        form.querySelectorAll('[aria-invalid="true"]').forEach((field) => {
+            field.setAttribute('aria-invalid', 'false');
         });
         document.querySelectorAll('.input-error').forEach((node) => {
             node.classList.remove('input-error');
