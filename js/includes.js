@@ -29,9 +29,7 @@ const resolveNavigationPath = (href) => {
     const normalized = href.replace(/^\.\//, '').replace(/^\//, '');
 
     if (window.location.pathname.includes('/pages/')) {
-        if (normalized === 'index.html') return '../index.html';
-        if (normalized.startsWith('pages/')) return `../${normalized}`;
-        return normalized;
+        return `../${normalized}`;
     }
 
     return normalized;
@@ -53,19 +51,22 @@ const insertFragment = async (targetId, url, fallbackMarkup) => {
         target.innerHTML = fallbackMarkup;
     }
 
-    if (targetId === 'site-header') {
-        target.querySelectorAll('a[data-href]').forEach((link) => {
-            link.setAttribute('href', resolveNavigationPath(link.dataset.href));
+    target.querySelectorAll('a[data-href]').forEach((link) => {
+        link.setAttribute('href', resolveNavigationPath(link.dataset.href));
 
-            const linkPath = normalizeNavigationPath(new URL(link.href, window.location.href).pathname);
-            const currentPath = normalizeNavigationPath(window.location.pathname);
-            if (linkPath === currentPath) {
-                link.setAttribute('aria-current', 'page');
-            } else {
-                link.removeAttribute('aria-current');
-            }
-        });
-    }
+        if (!link.dataset.href.endsWith('.html')) {
+            link.removeAttribute('aria-current');
+            return;
+        }
+
+        const linkPath = normalizeNavigationPath(new URL(link.href, window.location.href).pathname);
+        const currentPath = normalizeNavigationPath(window.location.pathname);
+        if (linkPath === currentPath) {
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
 };
 
 const currentScript = document.currentScript;

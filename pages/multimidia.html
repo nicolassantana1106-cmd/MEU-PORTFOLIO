@@ -5,77 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multimídia | Nicolas Henrique</title>
+    <link rel="icon" href="../img/monograma.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body>
-
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <div id="site-header"></div>
 
-    <main id="conteudo" class="container py-4" tabindex="-1">
+    <main id="conteudo" class="page-shell" tabindex="-1">
         <section class="hero">
-            <h1>Multimídia</h1>
-            <p>Conteúdos em vídeo, áudio e mídias incorporadas.</p>
+            <div class="container">
+                <p class="eyebrow">Multimídia</p>
+                <h1>Vídeo, áudio e mapa.</h1>
+                <p class="lede">Referências incorporadas na página, com título acessível em cada mídia.</p>
+            </div>
         </section>
 
-        <div class="multimidia-container">
-
-            <section>
-                <h2>Vídeo</h2>
-
-                <p>Animação Sid MC</p>
-
-                <div class="media-frame video-frame">
-                    <iframe
-                        src="https://www.youtube.com/embed/6X5krhF4RdA?rel=0"
-                        title="Vídeo de animação Sid MC"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
+        <section class="section">
+            <div class="container">
+                <div class="row g-4 media-grid">
+                    <article class="col-12 col-lg-7">
+                        <div class="media-card">
+                            <p class="kicker">Vídeo</p>
+                            <h2>Animação Sid MC</h2>
+                            <p>Clipe incorporado do YouTube, sem sair do portfólio.</p>
+                            <div class="media-frame video-frame">
+                                <iframe
+                                    src="https://www.youtube.com/embed/6X5krhF4RdA?rel=0"
+                                    title="Vídeo de animação Sid MC"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-12 col-lg-5">
+                        <div class="media-card">
+                            <p class="kicker">Áudio</p>
+                            <h2>Djonga e BK</h2>
+                            <p>Faixa disponível para ouvir direto na página.</p>
+                            <audio controls preload="metadata">
+                                <source src="Audio/10%20.%20Djonga%20-%20O%20Mundo%20%C3%A9%20Nosso%20part.%20BK(MP3_128K).mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </article>
+                    <article class="col-12">
+                        <div class="media-card">
+                            <p class="kicker">Localização</p>
+                            <h2>São Paulo</h2>
+                            <p>Mapa incorporado para mostrar a região de referência.</p>
+                            <iframe
+                                class="mapa"
+                                src="https://www.google.com/maps?q=Sao+Paulo,+SP&output=embed"
+                                title="Localização no Google Maps"
+                                loading="lazy"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </article>
                 </div>
-            </section>
-
-            <section>
-                <h2>Áudio</h2>
-
-                <p>Djonga e BK</p>
-
-                <audio controls preload="metadata">
-                    <source src="Audio/10%20.%20Djonga%20-%20O%20Mundo%20%C3%A9%20Nosso%20part.%20BK(MP3_128K).mp3" type="audio/mpeg">
-                    Seu navegador não suporta áudio.
-                </audio>
-            </section>
-
-        </div>
-
-        <section>
-            <h2>Localização</h2>
-
-            <p>
-                Localização exibida através do Google Maps.
-            </p>
-
-            <iframe
-                class="mapa"
-                src="https://www.google.com/maps?q=Sao+Paulo,+SP&output=embed"
-                title="Localização no Google Maps"
-                loading="lazy"
-                allowfullscreen>
-            </iframe>
-
+            </div>
         </section>
-
     </main>
 
     <div id="site-footer"></div>
-
     <script src="../js/includes.js" data-header-path="../components/header.html" data-footer-path="../components/footer.html"></script>
     <script src="../js/scripts.js"></script>
-
 </body>
 
 </html>

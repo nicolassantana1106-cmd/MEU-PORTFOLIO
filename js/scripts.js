@@ -9,7 +9,13 @@ const initializePortfolio = () => {
         themeButton.dataset.initialized = 'true';
         const updateThemeButton = () => {
             const isDark = document.body.classList.contains('dark');
-            themeButton.textContent = isDark ? 'Tema claro' : 'Tema escuro';
+            const label = isDark ? 'Tema claro' : 'Tema escuro';
+            const action = isDark ? 'Mudar para tema claro' : 'Mudar para tema escuro';
+            const labelNode = themeButton.querySelector('.theme-label');
+            if (labelNode) {
+                labelNode.textContent = label;
+            }
+            themeButton.setAttribute('aria-label', action);
             themeButton.setAttribute('aria-pressed', String(isDark));
         };
 
@@ -20,6 +26,50 @@ const initializePortfolio = () => {
             localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
             updateThemeButton();
         });
+    }
+
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const menuDrawer = document.querySelector('[data-menu-drawer]');
+    if (menuToggle && menuDrawer && menuToggle.dataset.initialized !== 'true') {
+        menuToggle.dataset.initialized = 'true';
+
+        const setMenuOpen = (isOpen) => {
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+            menuToggle.classList.toggle('is-open', isOpen);
+            menuDrawer.hidden = !isOpen;
+            document.body.classList.toggle('menu-open', isOpen);
+        };
+
+        menuToggle.addEventListener('click', () => {
+            setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        menuDrawer.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+                setMenuOpen(false);
+                menuToggle.focus();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 860 && menuToggle.getAttribute('aria-expanded') === 'true') {
+                setMenuOpen(false);
+            }
+        });
+    }
+
+    if (!document.body.dataset.scrollBound) {
+        document.body.dataset.scrollBound = 'true';
+        const updateHeader = () => {
+            document.querySelector('.site-header')?.classList.toggle('is-scrolled', window.scrollY > 8);
+        };
+        updateHeader();
+        window.addEventListener('scroll', updateHeader, { passive: true });
     }
 
     const form = document.getElementById('form-contato');

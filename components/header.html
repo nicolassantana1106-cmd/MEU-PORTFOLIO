@@ -1,9 +1,10 @@
 <header class="site-header">
-    <div class="brand-block">
-        <span class="brand-name">Nicolas Henrique Santana Caetano</span>
-    </div>
+    <div class="header-bar">
+        <a class="wordmark" href="index.html" data-href="index.html">
+            <span class="wordmark-mark" aria-hidden="true">NH</span>
+            <span class="wordmark-name">Nicolas Henrique</span>
+        </a>
 
-    <div class="header-actions">
         <nav class="main-nav" aria-label="Menu principal">
             <ul class="menu">
                 <li><a href="index.html" data-href="index.html">Início</a></li>
@@ -14,6 +15,47 @@
             </ul>
         </nav>
 
-        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">Tema escuro</button>
+        <div class="header-actions">
+            <a class="icon-button" data-href="files/curriculo-nicolas-henrique.pdf" href="files/curriculo-nicolas-henrique.pdf" download aria-label="Baixar currículo">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 4v10"></path>
+                    <path d="M8 10l4 4 4-4"></path>
+                    <path d="M5 19h14"></path>
+                </svg>
+            </a>
+
+            <button type="button" class="icon-button theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Mudar para tema escuro">
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16 3.2A8.2 8.2 0 1 0 20.8 15 6.4 6.4 0 0 1 16 3.2z"></path>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2.5v2.2M12 19.3v2.2M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.8 19.2l1.6-1.6M17.6 6.4l1.6-1.6"></path>
+                </svg>
+                <span class="sr-only theme-label">Tema escuro</span>
+            </button>
+
+            <button type="button" class="icon-button menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+                <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+                <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="mobile-drawer" id="menu-mobile" data-menu-drawer hidden>
+        <nav aria-label="Menu em telas menores">
+            <ul class="drawer-links">
+                <li><a href="index.html" data-href="index.html">Início</a></li>
+                <li><a href="pages/curriculo.html" data-href="pages/curriculo.html">Currículo</a></li>
+                <li><a href="pages/formulario.html" data-href="pages/formulario.html">Contato</a></li>
+                <li><a href="pages/multimidia.html" data-href="pages/multimidia.html">Multimídia</a></li>
+                <li><a href="pages/grafico.html" data-href="pages/grafico.html">Gráficos</a></li>
+            </ul>
+        </nav>
+        <a class="button button-block" data-href="files/curriculo-nicolas-henrique.pdf" href="files/curriculo-nicolas-henrique.pdf" download>Baixar currículo</a>
     </div>
 </header>

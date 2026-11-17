@@ -11,3 +11,6 @@ Thumbs.db
 # Ambiente
 .env
 .env.*
+
+# Referência visual local, fora da entrega
+marcus-vinicius-portfolio-main/
