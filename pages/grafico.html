@@ -86,32 +86,43 @@
     <script>
         const canvas = document.getElementById("grafico");
         const ctx = canvas.getContext("2d");
+        const dados = [
+            { ano: "2016", valor: 69 },
+            { ano: "2018", valor: 79 },
+            { ano: "2020", valor: 83 },
+            { ano: "2022", valor: 89 },
+            { ano: "2024", valor: 94 }
+        ];
 
-        ctx.font = "20px Arial";
-        ctx.fillStyle = "black";
-        ctx.fillText("Acesso à Internet nos Domicílios Brasileiros (%)", 120, 30);
+        const largura = canvas.width;
+        const altura = canvas.height;
+        const margem = { topo: 64, direita: 24, base: 48, esquerda: 36 };
+        const areaLargura = largura - margem.esquerda - margem.direita;
+        const areaAltura = altura - margem.topo - margem.base;
+        const espaco = 28;
+        const larguraBarra = (areaLargura - espaco * (dados.length - 1)) / dados.length;
 
-        ctx.fillStyle = "#009B3A";
-        ctx.fillRect(70, 150, 80, 180);
-        ctx.fillRect(190, 120, 80, 210);
-        ctx.fillRect(310, 90, 80, 240);
-        ctx.fillRect(430, 60, 80, 270);
-        ctx.fillRect(550, 30, 80, 300);
+        ctx.clearRect(0, 0, largura, altura);
+        ctx.fillStyle = "#1a1a1a";
+        ctx.font = "bold 18px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Acesso à Internet nos Domicílios Brasileiros (%)", largura / 2, 28);
 
-        ctx.fillStyle = "black";
-        ctx.font = "16px Arial";
+        dados.forEach((item, indice) => {
+            const alturaBarra = (item.valor / 100) * areaAltura;
+            const x = margem.esquerda + indice * (larguraBarra + espaco);
+            const y = margem.topo + (areaAltura - alturaBarra);
 
-        ctx.fillText("2016", 85, 360);
-        ctx.fillText("2018", 205, 360);
-        ctx.fillText("2020", 325, 360);
-        ctx.fillText("2022", 445, 360);
-        ctx.fillText("2024", 565, 360);
+            ctx.fillStyle = "#007a2f";
+            ctx.fillRect(x, y, larguraBarra, alturaBarra);
 
-        ctx.fillText("69%", 85, 140);
-        ctx.fillText("79%", 205, 110);
-        ctx.fillText("83%", 325, 80);
-        ctx.fillText("89%", 445, 50);
-        ctx.fillText("94%", 565, 20);
+            ctx.fillStyle = "#1a1a1a";
+            ctx.font = "bold 16px Arial";
+            ctx.fillText(`${item.valor}%`, x + larguraBarra / 2, y - 16);
+            ctx.font = "16px Arial";
+            ctx.fillText(item.ano, x + larguraBarra / 2, altura - 20);
+        });
     </script>
 
 </body>
