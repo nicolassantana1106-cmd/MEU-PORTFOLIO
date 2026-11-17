@@ -397,7 +397,6 @@ button.button,
 .media-card,
 .timeline-item,
 .chart-frame {
-    height: 100%;
     padding: 22px;
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -451,8 +450,21 @@ button.button,
 }
 
 .section-heading {
-    max-width: 680px;
-    margin-bottom: 22px;
+    max-width: 720px;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+.page-shell .row {
+    margin-top: 0;
+}
+
+[class*="col-"] > .project-card,
+[class*="col-"] > .panel,
+[class*="col-"] > .media-card,
+[class*="col-"] > .chart-frame,
+[class*="col-"] > .profile-card {
+    height: 100%;
 }
 
 .project-card p,
